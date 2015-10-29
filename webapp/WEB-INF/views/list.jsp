@@ -31,7 +31,7 @@
 	</c:forEach>
 	
 	<p>
-		<a href="/emaillist2/el?a=form">추가메일 등록</a>
+		<a href="/emaillist3/form">추가메일 등록</a>
 	</p>
 	<br>
 </body>
