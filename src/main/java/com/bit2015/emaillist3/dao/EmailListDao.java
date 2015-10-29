@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bit2015.emaillist3.vo.EmailListVo;
 
-@Repository
+@Repository( "elDao" )
 public class EmailListDao {
 	private Connection getConnection() throws SQLException {
 		
