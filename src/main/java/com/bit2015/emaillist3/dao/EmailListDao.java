@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.bit2015.emaillist3.exception.RepositoryException;
 import com.bit2015.emaillist3.vo.EmailListVo;
 
 @Repository( "elDao" )
@@ -28,7 +29,11 @@ public class EmailListDao {
 			connection = DriverManager.getConnection( dbURL, "webdb", "webdb" );
 			
 		} catch( ClassNotFoundException ex ){
-			System.out.println( "드라이버 로딩 실패-" + ex );
+			//1. log 처리( console, file, DB )
+			System.out.println( "SQL 오류-" + ex );
+			
+			// 2. Exception 전환
+			throw new RepositoryException( ex.toString() );
 		} 
 		
 		return connection;
@@ -59,7 +64,11 @@ public class EmailListDao {
 			connection.close();
 			
 		} catch( SQLException ex ) {
+			//1. log 처리( console, file, DB )
 			System.out.println( "SQL 오류-" + ex );
+			
+			// 2. Exception 전환
+			throw new RepositoryException( ex.toString() );
 		}
 	}
 	
@@ -99,7 +108,11 @@ public class EmailListDao {
 			connection.close();
 			
 		} catch( SQLException ex ) {
+			//1. log 처리( console, file, DB )
 			System.out.println( "SQL 오류-" + ex );
+			
+			// 2. Exception 전환
+			throw new RepositoryException( ex.toString() );
 		}
 		
 		return list;

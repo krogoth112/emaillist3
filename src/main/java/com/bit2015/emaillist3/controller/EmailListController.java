@@ -26,13 +26,12 @@ public class EmailListController {
 		List<EmailListVo> list = emailListDao.getList();
 		model.addAttribute( "list", list );
 		// model.addAttribute( list );  // 첫번째 요소의 타입이름(클래스이름)에 List를 붙힌다.  emailListVoList
-
-		return "/WEB-INF/views/list.jsp";
+		return "/board/list";
 	}
 	
 	@RequestMapping( "/form" )
 	public String form() {
-		return "/WEB-INF/views/form.jsp";
+		return "/board/form";
 	}
 	
 	@RequestMapping( value = "/insert", method = RequestMethod.POST )
