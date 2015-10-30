@@ -17,8 +17,7 @@ import com.bit2015.emaillist3.vo.EmailListVo;
 public class EmailListController {
 
 	@Autowired
-	@Qualifier( "elDao" )
-	EmailListDao emailListDao;
+	private EmailListDao emailListDao;
 	
 	@RequestMapping( "/list" )
 	public String list( Model model ) {
